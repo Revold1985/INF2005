@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<list>
+    <etudiant ms="bh654321">
+        <nom>Drolet</nom>
+        <prenom>Jonathan</prenom>
+        <password>jjjj12345</password>
+    </etudiant>
+    <etudiant ms="bh123456">
+        <nom>Do</nom>
+        <prenom>Fred</prenom>
+        <password>ffff12345</password>	
+    </etudiant>
+	
+    <enseignant ms="bh112233">
+        <nom>Lapointe</nom>
+        <prenom>Pierre</prenom>
+        <password>pppp12345</password>
+    </enseignant>
+
+    <demonstrateur ms="bh111111">
+        <nom>Manid</nom>
+        <prenom>Rachid</prenom>
+        <password>rrrr11111</password>
+    </demonstrateur>
+</list>
