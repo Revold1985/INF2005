@@ -20,7 +20,8 @@
 				</div>
 				<div class="headert_text_resize">
 					<div class="textarea">
-
+						<h2>&nbsp;</h2>
+						<h2>Vous êtes connecté !</h2>
 					</div>
 					<img src="images/img_1.jpg" alt="" width="631" height="279" />
 					<div class="clr"></div>
@@ -29,35 +30,36 @@
 			<div class="body">
 				<div class="body_resize">
 					<div class="left">
-						<h4> Voici la liste des étudiants: </h4>
-						<script>
-							if (window.XMLHttpRequest) {// pour navigateur IE7+, Firefox, Chrome, Safari
-								xmlhttp = new XMLHttpRequest();
-							} else {// pour navigateur IE6, IE5
-								xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-							}
-							xmlhttp.open("GET", "etudiants_liste.xml", false);
-							xmlhttp.send();
-							xmlDoc = xmlhttp.responseXML;
+						<h4> Veuillez saisir les informations dans les champs appropriées: </h4>
 
-							document.write("<table border='1'>");
-							var x = xmlDoc.getElementsByTagName("ETUDIANT");
-							for ( i = 0; i < x.length; i++) {
-								document.write("<tr><td>");
-								document.write(x[i].getElementsByTagName("NOM")[0].childNodes[0].nodeValue);
-								document.write("</td><td>");
-								document.write(x[i].getElementsByTagName("CODE_PERMANENT")[0].childNodes[0].nodeValue);
-								document.write("</td></tr>");
-							}
-							document.write("</table>");
-						</script>
+						<div class="left">
+
+							<form action="/INF2005-v02/confirmationEnvoiCourriel.html" method="post" id="contactform">
+								<ol>
+									<li>
+										<label for="name">Destinataire*</label>
+										<input id="name" name="name" class="text" />
+									</li>
+									<li>
+										<label for="email">Objet*</label>
+										<input id="email" name="email" class="text" />
+									</li>
+									<li>
+										<label for="message">Texte*</label>
+										<textarea id="message" name="message" rows="6" cols="50"></textarea>
+									</li>
+									<li class="buttons">
+										<input type="submit" name="imageField" id="imageField"  value="Send message" class="send" />
+										
+										
+										<div class="clr"></div>
+									</li>
+								</ol>
+							</form>
+						</div>
+
 						<br />
-						<span > Retour à la page précédente :</span>
-						<br />
-						<a href="enseignant.html" > -> Enseignant : Cliquez</a>
-						<br />
-						<a href="demonstrateur.html" > -> Démonstrateur : Cliquez</a>
-						<br />
+
 						<br />
 						<div class="bg"></div>
 

@@ -29,34 +29,16 @@
 			<div class="body">
 				<div class="body_resize">
 					<div class="left">
-						<h4> Voici la liste des étudiants: </h4>
-						<script>
-							if (window.XMLHttpRequest) {// pour navigateur IE7+, Firefox, Chrome, Safari
-								xmlhttp = new XMLHttpRequest();
-							} else {// pour navigateur IE6, IE5
-								xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-							}
-							xmlhttp.open("GET", "etudiants_liste.xml", false);
-							xmlhttp.send();
-							xmlDoc = xmlhttp.responseXML;
+						<h4> Votre message a bien été envoyé. </h4>
 
-							document.write("<table border='1'>");
-							var x = xmlDoc.getElementsByTagName("ETUDIANT");
-							for ( i = 0; i < x.length; i++) {
-								document.write("<tr><td>");
-								document.write(x[i].getElementsByTagName("NOM")[0].childNodes[0].nodeValue);
-								document.write("</td><td>");
-								document.write(x[i].getElementsByTagName("CODE_PERMANENT")[0].childNodes[0].nodeValue);
-								document.write("</td></tr>");
-							}
-							document.write("</table>");
-						</script>
 						<br />
 						<span > Retour à la page précédente :</span>
 						<br />
 						<a href="enseignant.html" > -> Enseignant : Cliquez</a>
 						<br />
 						<a href="demonstrateur.html" > -> Démonstrateur : Cliquez</a>
+						<br />
+						<a href="etudiant.html" > -> Étudiant: Cliquez</a>
 						<br />
 						<br />
 						<div class="bg"></div>
