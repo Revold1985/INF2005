@@ -70,6 +70,21 @@
         document.write(x[i].getAttribute("ms"));
         document.write("</td></tr>");
     }
+    var role = localStorage.role;
+    var dbr = JSON.parse(role);
+    var x = dbr.role;
+    if (x == null) {
+    } else {
+        for (var i = 0; i < x.length; i++) {
+            document.write("<tr><td>");
+            document.write(x[i].nom);
+            document.write("</td><td>");
+            document.write(x[i].prenom);
+            document.write("</td><td>");
+            document.write(x[i].codeMS);
+            document.write("</td></tr>");
+        }
+    }
     document.write("</table>");
 
     function goBack()
@@ -79,49 +94,48 @@
                             </script>
                             </br>
                             <button onclick="goBack()">Retourner à la page précédente</button>
-                            <div class="bg"></div>
 
-                            </blockquote>
                         </div>
-                        <div class="right">
-                            <div class="blog">
-                                <h2><span>Choix d'options</span></h2>
-                                <ul>
-                                    <script>
-                                        var dbjson = localStorage.getItem('db');
-                                        var dbJ = JSON.parse(dbjson);
-                                        var sect = dbJ.section;
-                                        if (sect == null) {
-                                        } else {
-                                            for (var i = 0; i < sect.length; i++) {
-                                                dbtext = sect[i]
-                                                var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
-                                                document.write(sectionhtml);
-                                            }
-                                        }
-                                    </script>
-                                    <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
-                                    <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
-                                    <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
-                                </ul>
-                            </div>
-                            <div class="blog">
-                                <h2><span>Liens Externe</span></h2>
-                                <ul class="sponsors">
-                                    <li class="sponsors"><a href="http://www.uqam.ca/" target="_new">UQAM</a><br />
-                                    </li>
-                                    <li class="sponsors"><a href="http://www.info.uqam.ca/" target="_new">Département informatique</a><br />
-                                    </li>
-                                    <li class="sponsors"><a href="http://www.moodle.uqam.ca/" target="_new">Moodle</a><br />
-                                    </li>
-                                    <li class="sponsors"><a href="hhttp://www.resultats.uqam.ca/etudiant/" target="_new">Résultat</a><br />
-                                    </li>
-                                    <li class="sponsors"><a href="http://www.sitel.uqam.ca/etudiants/Pages/accueil.aspx" target="_new">Sitel</a><br />
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+
+            <div class="right">
+                <div class="blog">
+                    <h2><span>Choix d'options</span></h2>
+                    <ul>
+                        <script>
+                            var dbjson = localStorage.getItem('db');
+                            var dbJ = JSON.parse(dbjson);
+                            var sect = dbJ.section;
+                            if (sect == null) {
+                            } else {
+                                for (var i = 0; i < sect.length; i++) {
+                                    dbtext = sect[i]
+                                    var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
+                                    document.write(sectionhtml);
+                                }
+                            }
+                        </script>
+                        <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
+                        <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
+                        <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
+                    </ul>
                 </div>
-                </body>
-                </html>
+                <div class="blog">
+                    <h2><span>Liens Externe</span></h2>
+                    <ul class="sponsors">
+                        <li class="sponsors"><a href="http://www.uqam.ca/" target="_new">UQAM</a><br />
+                        </li>
+                        <li class="sponsors"><a href="http://www.info.uqam.ca/" target="_new">Département informatique</a><br />
+                        </li>
+                        <li class="sponsors"><a href="http://www.moodle.uqam.ca/" target="_new">Moodle</a><br />
+                        </li>
+                        <li class="sponsors"><a href="hhttp://www.resultats.uqam.ca/etudiant/" target="_new">Résultat</a><br />
+                        </li>
+                        <li class="sponsors"><a href="http://www.sitel.uqam.ca/etudiants/Pages/accueil.aspx" target="_new">Sitel</a><br />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

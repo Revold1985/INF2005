@@ -65,27 +65,27 @@
                         </form>
                     </div>
                     <div class="right">
-                            <div class="blog">
-                                <h2><span>Choix d'options</span></h2>
-                                <ul>
-                                    <script>
-                                        var dbjson = localStorage.getItem('db');
-                                        var dbJ = JSON.parse(dbjson);
-                                        var sect = dbJ.section;
-                                        if (sect == null) {
-                                        } else {
-                                            for (var i = 0; i < sect.length; i++) {
-                                                dbtext = sect[i]
-                                                var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
-                                                document.write(sectionhtml);
-                                            }
+                        <div class="blog">
+                            <h2><span>Choix d'options</span></h2>
+                            <ul>
+                                <script>
+                                    var dbjson = localStorage.getItem('db');
+                                    var dbJ = JSON.parse(dbjson);
+                                    var sect = dbJ.section;
+                                    if (sect == null) {
+                                    } else {
+                                        for (var i = 0; i < sect.length; i++) {
+                                            dbtext = sect[i]
+                                            var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
+                                            document.write(sectionhtml);
                                         }
-                                    </script>
-                                    <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
-                                    <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
-                                    <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
-                                </ul>
-                            </div>
+                                    }
+                                </script>
+                                <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
+                                <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
+                                <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
+                            </ul>
+                        </div>
                         <div class="blog">
                             <h2><span>Liens Externe</span></h2>
                             <ul class="sponsors">

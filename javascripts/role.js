@@ -63,6 +63,7 @@ function newrole() {
     if (!codeMSexist(codeMS.value, role)) {
         nouveaurole(nom, prenom, codeMS, passW, role);
         location.reload();
+        alert("nouveau " + role + " ajouté!");
         return false;
     }
     return false;
@@ -115,9 +116,24 @@ function codeMSexist(codeMS, role) {
 }
 
 function  nouveaurole(nom, prenom, codeMS, passW, role) {
-    xmlDoc = loadXMLDoc("javascripts/login.xml");
-    newNode = 
-    x = xmlDoc.getElementsByTagName("list")[0];
-    x.appendChild(newNode);
-    console.log(x);
+    var dbrole = [];
+    dbrole = JSON.parse(localStorage.role);
+    if (dbrole.role == null || typeof (dbrole.role) == undefined) {
+        dbrole = {"role": []};
+
+    }
+    var DB = [];
+    DB = dbrole.role;
+    var jsonObject = [];
+    jsonObject = {
+        "nom": nom.value,
+        "prenom": prenom.value,
+        "codeMS": codeMS.value,
+        "password": passW.value,
+        "role": role
+    };
+    DB.push(jsonObject);
+    dbrole.role = DB;
+    localStorage.role = ('role', JSON.stringify(dbrole));
+    console.log(localStorage.role);
 }

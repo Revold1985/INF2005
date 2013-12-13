@@ -65,6 +65,8 @@ validerFormulaire = function() {
     if (userVerif) {
         var jsonObject = {section: []};
         localStorage.setItem('db', JSON.stringify(jsonObject));
+        var dbrole = {"role": []};
+        localStorage.setItem('role', JSON.stringify(dbrole));
         window.location = poste + ".html";
         return false;
     }

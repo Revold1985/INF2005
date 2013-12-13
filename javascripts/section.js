@@ -2,18 +2,18 @@ function ajoutSection() {
     var type = document.getElementById("type");
     var titre = document.getElementById("titre");
     var description = document.getElementById("description");
-    if (description.value.length <= 0 || titre.value.length <= 0 ){
+    if (description.value.length <= 0 || titre.value.length <= 0) {
         alert("veuillez remplir tous les champs");
-    }else{
-    var dbsection = [];
-    dbsection = JSON.parse(localStorage.db);
-    if (dbsection.section == null || typeof (dbsection.section) == undefined) {
-        dbsection = {"section": []};
-        
-    }
+    } else {
+        var dbsection = [];
+        dbsection = JSON.parse(localStorage.db);
+        if (dbsection.section == null || typeof (dbsection.section) == undefined) {
+            dbsection = {"section": []};
+
+        }
         var DB = [];
         DB = dbsection.section;
-        var jsonObject =[];
+        var jsonObject = [];
         jsonObject = {
             "type": type.value,
             "titre": titre.value,
@@ -23,8 +23,8 @@ function ajoutSection() {
         dbsection.section = DB;
         localStorage.db = ('bd', JSON.stringify(dbsection));
     }
-        location.reload();
-        return false;
+    location.reload();
+    return false;
 }
 function gotosection(i) {
     var dbsection = [];
@@ -42,10 +42,10 @@ function effacerSection(index) {
     db = JSON.parse(localStorage.db);
     var dbsection = [];
     dbsection = db.section;
-    var temp = {"section" : []};
+    var temp = {"section": []};
     for (var i = 0; i < dbsection.length; i++) {
         if (i != index.valueOf()) {
-            temp.section.push(dbsection[i]);   
+            temp.section.push(dbsection[i]);
         }
     }
     dbsection = temp;
@@ -55,9 +55,9 @@ function effacerSection(index) {
 
 }
 
-function success(){
+function success() {
     var conf = confirm("Voulez vous envoyer ce message ?");
-    if (conf){
+    if (conf) {
         alert("Message envoyé");
         location.reload();
     }
