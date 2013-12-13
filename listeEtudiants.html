@@ -1,3 +1,13 @@
+<script type="text/javascript" src="javascripts/loginForm.js"></script>
+<script type="text/javascript">
+
+    if (sessionStorage.poste == "etudiant") {
+        window.location = "index.html";
+    }
+    ;
+</script>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -9,23 +19,32 @@
 
 	</head>
 	<body>
-		<div class="main">
-			<div class="header">
-				<div class="header_resize">
-					<div class="logo">
-						<h1><a href="index.html">inf<span>2005</span><small>Programmation Web</small></a></h1>
-					</div>
+        <div class="main">
+            <div class="header">
+                <div class="header_resize">
+                    <div class="logo">
+                        <h1><a href="index.html">inf<span>2005</span><small>Programmation Web</small></a></h1>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="index.html"><span>Acceuil</span></a></li>
+                            <li id="etudiant" style="display:none"><a href="etudiant.html"><span>Etudiant</span></a></li>
+                            <li id="enseignant" style="display:none"><a class="active" href="enseignant.html"><span>Enseignant</span></a></li>
+                            <li id="demonstrateur" style="display:none"><a href="demonstrateur.html"><span>Demonstateur</span></a></li>
+                            <li><a href="contact.html"><span> Contact</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="headert_text_resize">
+                    <div class="headert_text_resize">
+                        <div class="textarea" id='connected'>
 
-					<div class="clr"></div>
-				</div>
-				<div class="headert_text_resize">
-					<div class="textarea">
-
-					</div>
-					<img src="images/img_1.jpg" alt="" width="631" height="279" />
-					<div class="clr"></div>
-				</div>
-			</div>
+                        </div>
+                        <img src="images/img_1.jpg" alt="" width="631" height="279" />
+                        <div class="clr"></div>
+                    </div>
+                </div>
 			<div class="body">
 				<div class="body_resize">
 					<div class="left">
@@ -36,29 +55,30 @@
 							} else {// pour navigateur IE6, IE5
 								xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 							}
-							xmlhttp.open("GET", "etudiants_liste.xml", false);
+							xmlhttp.open("GET", "javascripts/login.xml", false);
 							xmlhttp.send();
 							xmlDoc = xmlhttp.responseXML;
 
-							document.write("<table border='1'>");
-							var x = xmlDoc.getElementsByTagName("ETUDIANT");
+							document.write("<table border='1' class='tftable' width= '500'><tr><th>Nom</th><th>Prenom</th><th>Code MS</th></tr>");
+							var x = xmlDoc.getElementsByTagName("etudiant");
 							for ( i = 0; i < x.length; i++) {
 								document.write("<tr><td>");
-								document.write(x[i].getElementsByTagName("NOM")[0].childNodes[0].nodeValue);
+								document.write(x[i].getElementsByTagName("nom")[0].childNodes[0].nodeValue);
 								document.write("</td><td>");
-								document.write(x[i].getElementsByTagName("CODE_PERMANENT")[0].childNodes[0].nodeValue);
+								document.write(x[i].getElementsByTagName("prenom")[0].childNodes[0].nodeValue);
+								document.write("</td><td>");
+								document.write(x[i].getAttribute("ms"));
 								document.write("</td></tr>");
 							}
 							document.write("</table>");
-						</script>
-						<br />
-						<span > Retour à la page précédente :</span>
-						<br />
-						<a href="enseignant.html" > -> Enseignant : Cliquez</a>
-						<br />
-						<a href="demonstrateur.html" > -> Démonstrateur : Cliquez</a>
-						<br />
-						<br />
+
+                        function goBack()
+                          {
+                          window.history.back()
+                          }
+                        </script>
+                        </br>
+                        <button onclick="goBack()">Retourner à la page précédente</button>
 						<div class="bg"></div>
 
 						</blockquote>
