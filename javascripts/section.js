@@ -38,6 +38,10 @@ function gotosection(i) {
 
 }
 function effacerSection(index) {
+    if(sessionStorage.poste == "etudiant"){
+        alert("Vous ne pouvez pas effacer cette section");
+        return false;
+    }
     var db = [];
     db = JSON.parse(localStorage.db);
     var dbsection = [];

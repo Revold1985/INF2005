@@ -63,10 +63,14 @@ validerFormulaire = function() {
     var poste = validerReponse();
     var userVerif = verifierUser(codeMS.value, passW.value, poste);
     if (userVerif) {
+        if(localStorage.db==null || typeof (localStorage.db) == undefined){
         var jsonObject = {section: []};
         localStorage.setItem('db', JSON.stringify(jsonObject));
+        }
+        if(localStorage.role==null || typeof (localStorage.role) == undefined){
         var dbrole = {"role": []};
         localStorage.setItem('role', JSON.stringify(dbrole));
+        }
         window.location = poste + ".html";
         return false;
     }

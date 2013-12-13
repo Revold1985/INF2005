@@ -135,5 +135,4 @@ function  nouveaurole(nom, prenom, codeMS, passW, role) {
     DB.push(jsonObject);
     dbrole.role = DB;
     localStorage.role = ('role', JSON.stringify(dbrole));
-    console.log(localStorage.role);
 }
