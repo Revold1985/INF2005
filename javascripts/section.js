@@ -2,6 +2,9 @@ function ajoutSection() {
     var type = document.getElementById("type");
     var titre = document.getElementById("titre");
     var description = document.getElementById("description");
+    if (description.value.length <= 0 || titre.value.length <= 0 ){
+        alert("veuillez remplir tous les champs");
+    }else{
     var dbsection = [];
     dbsection = JSON.parse(localStorage.db);
     if (dbsection.section == null || typeof (dbsection.section) == undefined) {
@@ -19,6 +22,7 @@ function ajoutSection() {
         DB.push(jsonObject);
         dbsection.section = DB;
         localStorage.db = ('bd', JSON.stringify(dbsection));
+    }
         location.reload();
         return false;
 }
@@ -34,18 +38,17 @@ function gotosection(i) {
 
 }
 function effacerSection(index) {
-    alert(index);
     var db = [];
     db = JSON.parse(localStorage.db);
     var dbsection = [];
     dbsection = db.section;
-    var temp = [];
-    for (var i = 0, l = dbsection.length; i < l; i++) {
-        if (i != index) {
-            temp.push(dbsection.section[i]);
+    var temp = {"section" : []};
+    for (var i = 0; i < dbsection.length; i++) {
+        if (i != index.valueOf()) {
+            temp.section.push(dbsection[i]);   
         }
     }
-    dbsection.section = temp;
+    dbsection = temp;
     localStorage.db = ('bd', JSON.stringify(dbsection));
     location.reload();
     return false;

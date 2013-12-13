@@ -1,12 +1,9 @@
 <script type="text/javascript" src="javascripts/loginForm.js"></script>
+<script type="text/javascript" src="javascripts/section.js"></script>
 <script type="text/javascript">
 
     if (sessionStorage.poste == "etudiant") {
         window.location = "index.html";
-    }
-    ;
-    if (sessionStorage.poste == "enseignant") {
-        document.getElementById("ajouterRole").style.display = "block";
     }
 </script>
 
@@ -50,7 +47,7 @@
                 </div>
                 <div class="body">
                     <div class="body_resize">
-                        <div class="left">
+                        <div class="left" id="section">
                             <h2> Voici la liste des étudiants: </h2>
                             <script>
     if (window.XMLHttpRequest) {// pour navigateur IE7+, Firefox, Chrome, Safari
@@ -90,10 +87,20 @@
                             <div class="blog">
                                 <h2><span>Choix d'options</span></h2>
                                 <ul>
+                                    <script>
+                                        var dbjson = localStorage.getItem('db');
+                                        var dbJ = JSON.parse(dbjson);
+                                        var sect = dbJ.section;
+                                        if (sect == null) {
+                                        } else {
+                                            for (var i = 0; i < sect.length; i++) {
+                                                dbtext = sect[i]
+                                                var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
+                                                document.write(sectionhtml);
+                                            }
+                                        }
+                                    </script>
                                     <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
-                                    <li> <a href="ajouter.html">Ajouter du contenu</a> </li>
-                                    <li> <a href="modifier.html">Modifier du contenu</a> </li>
-                                    <li> <a href="supprimer.html#1">Supprimer du contenu</a> </li>
                                     <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
                                     <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
                                 </ul>

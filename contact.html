@@ -1,5 +1,5 @@
 <script type="text/javascript" src="javascripts/loginForm.js"></script>
-<script type="text/javascript" src="javascripts/validation.js"></script>
+<script type="text/javascript" src="javascripts/section.js"></script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,7 +39,7 @@
             </div>
             <div class="body">
                 <div class="body_resize">
-                    <div class="left">
+                    <div class="left" id="section">
                         <blockquote>
                             <h2>Contactez nous ! </h2>
                         </blockquote>
@@ -50,7 +50,7 @@
                                     <input id="name" name="name" class="text" />
                                 </li>
                                 <li>
-                                    <label for="email">courriell*</label>
+                                    <label for="email">courriel*</label>
                                     <input id="email" name="email" class="text" />
                                 </li>
                                 <li>
@@ -65,14 +65,27 @@
                         </form>
                     </div>
                     <div class="right">
-                        <div class="blog">
-                            <h2><span>Nouvelles</span></h2>
-                            <ul>
-                                <li><a href="index.html#3">Bienvenue</a></li>
-                                <li><a href="index.html#2">Des jeux Video intelligents</a></li>
-                                <li><a href="index.html#1">Jean Privat</a></li>
-                            </ul>
-                        </div>
+                            <div class="blog">
+                                <h2><span>Choix d'options</span></h2>
+                                <ul>
+                                    <script>
+                                        var dbjson = localStorage.getItem('db');
+                                        var dbJ = JSON.parse(dbjson);
+                                        var sect = dbJ.section;
+                                        if (sect == null) {
+                                        } else {
+                                            for (var i = 0; i < sect.length; i++) {
+                                                dbtext = sect[i]
+                                                var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
+                                                document.write(sectionhtml);
+                                            }
+                                        }
+                                    </script>
+                                    <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
+                                    <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
+                                    <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
+                                </ul>
+                            </div>
                         <div class="blog">
                             <h2><span>Liens Externe</span></h2>
                             <ul class="sponsors">
