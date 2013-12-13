@@ -73,7 +73,7 @@ validerFormulaire = function() {
         }
         window.location = poste + ".html";
         return false;
-    }
+    }else{return false;}
 
 };
 
@@ -119,21 +119,19 @@ function verifierUser(codeMS, passW, poste) {
     XMLPoste = XML.getElementsByTagName(poste);
     for (var i = 0; i < XMLPoste.length; i++) {
         var XcodeMS = XMLPoste[i].getAttribute("ms");
-        var XpassW = XMLPoste[i].getElementsByTagName("password")[i].childNodes[0].nodeValue;
+        var XpassW = XMLPoste[i].getElementsByTagName("password")[0].childNodes[0].nodeValue;
         if (codeMS == XcodeMS && passW == XpassW) {
-            var nom = XMLPoste[i].getElementsByTagName("nom")[i].childNodes[0].nodeValue;
-            var prenom = XMLPoste[i].getElementsByTagName("prenom")[i].childNodes[0].nodeValue;
+            var nom = XMLPoste[i].getElementsByTagName("nom")[0].childNodes[0].nodeValue;
+            var prenom = XMLPoste[i].getElementsByTagName("prenom")[0].childNodes[0].nodeValue;
             sessionStorage.setItem('connected', true);
             sessionStorage.setItem('nom', nom);
             sessionStorage.setItem('prenom', prenom);
             sessionStorage.setItem('codeMS', codeMS);
             sessionStorage.setItem('poste', poste);
             return true;
-        } else {
-            alert("Erreur ; Mauvais codeMS/Mot depasse");
-            window.location = index.html;
-        }
+        } 
     }
-
+            alert("Erreur ; Mauvais codeMS/Mot depasse");
+            return false;
 }
 ;

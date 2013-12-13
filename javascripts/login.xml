@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <list>
-    <etudiant ms="bh654321">
+    <etudiant ms="bh111111">
         <nom>Drolet</nom>
         <prenom>Jonathan</prenom>
-        <password>jjjj12345</password>
+        <password>aaaa11111</password>
         <courriel>jonathan@hotmail.com</courriel>
     </etudiant>
     <etudiant ms="bh123456">
@@ -13,22 +13,22 @@
         <password>ffff12345</password>	
         <courriel>fred@hotmail.com</courriel>
     </etudiant>
-    <etudiant ms="wa20038603">
+    <etudiant ms="ss111111">
         <nom>Wallberg</nom>
         <prenom>Mark</prenom>
-        <password>mmmm12345</password>
+        <password>ssss11111</password>
         <courriel>mark@hotmail.com</courriel>
     </etudiant>
 	
-    <enseignant ms="bh112233">
-        <nom>Lapointe</nom>
-        <prenom>Pierre</prenom>
-        <password>pppp12345</password>
+    <enseignant ms="ee111111">
+        <nom>Tsheke Shele</nom>
+        <prenom>Johnny </prenom>
+        <password>eeee11111</password>
     </enseignant>
 
-    <demonstrateur ms="bh111111">
+    <demonstrateur ms="dd111111">
         <nom>Manid</nom>
         <prenom>Rachid</prenom>
-        <password>rrrr11111</password>
+        <password>dddd11111</password>
     </demonstrateur>
 </list>

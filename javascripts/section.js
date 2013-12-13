@@ -2,6 +2,7 @@ function ajoutSection() {
     var type = document.getElementById("type");
     var titre = document.getElementById("titre");
     var description = document.getElementById("description");
+    var ressource = document.getElementById("ressource");
     if (description.value.length <= 0 || titre.value.length <= 0) {
         alert("veuillez remplir tous les champs");
     } else {
@@ -17,7 +18,8 @@ function ajoutSection() {
         jsonObject = {
             "type": type.value,
             "titre": titre.value,
-            "description": description.value
+            "description": description.value,
+            "ressource": ressource.value
         };
         DB.push(jsonObject);
         dbsection.section = DB;
@@ -33,12 +35,13 @@ function gotosection(i) {
     var type = DB.type;
     var titre = DB.titre;
     var description = DB.description;
-    var newHTML = '<table width="600"><tr><td><h3>Information sur ' + type + '</h3></td></tr><tr><td><h4>Titre: ' + titre + '</h4></td></tr><tr><td><h4>Description: ' + description + '</h4></td></td></tr></table><form id="login"  method="POST" action="" name ="formulaire"  onsubmit="return effacerSection(' + i + ');"><input type="submit" value="Effacer la section" /></tr></form>';
+    var ressource = DB.ressource;
+    var newHTML = '<table width="600"><tr><td><h3>Information sur ' + type + '</h3></td></tr><tr><td><h4>Titre: ' + titre + '</h4></td></tr><tr><td><h4>Description: ' + description + '</h4></td></td></tr><tr><td><h4>ressource: <a href='+ressource+' target="_blank"> ' + ressource + '</a></h4></td></td></tr></table><form id="login"  method="POST" action="" name ="formulaire"  onsubmit="return effacerSection(' + i + ');"><input type="submit" value="Effacer la section" /></tr></form>';
     document.getElementById("section").innerHTML = newHTML;
 
 }
 function effacerSection(index) {
-    if(sessionStorage.poste == "etudiant"){
+    if(sessionStorage.poste != "demonstrateur" || sessionStorage.poste != "enseignant"){
         alert("Vous ne pouvez pas effacer cette section");
         return false;
     }
