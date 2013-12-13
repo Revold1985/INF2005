@@ -63,6 +63,8 @@ validerFormulaire = function() {
     var poste = validerReponse();
     var userVerif = verifierUser(codeMS.value, passW.value, poste);
     if (userVerif) {
+        var jsonObject = {section: []};
+        localStorage.setItem('db', JSON.stringify(jsonObject));
         window.location = poste + ".html";
         return false;
     }
@@ -122,7 +124,8 @@ function verifierUser(codeMS, passW, poste) {
             sessionStorage.setItem('poste', poste);
             return true;
         } else {
-            alert("Erreur ; Mauvais codeMS/Mot depasse" + XcodeMS + " " + codeMS + " /" + XpassW + " " + passW)
+            alert("Erreur ; Mauvais codeMS/Mot depasse");
+            window.location = index.html;
         }
     }
 

@@ -1,16 +1,12 @@
+<script type="text/javascript" src="javascripts/section.js"></script>
 <script type="text/javascript" src="javascripts/loginForm.js"></script>
 <script type="text/javascript">
 
-    if (sessionStorage.poste == "etudiant") {
+    if (sessionStorage.poste != "enseignant") {
         window.location = "index.html";
     }
     ;
-    if (sessionStorage.poste == "enseignant") {
-        document.getElementById("ajouterRole").style.display = "block";
-    }
 </script>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -18,7 +14,8 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta content="inf2005, uqam, programmation, web" />
         <link href="style.css" rel="stylesheet" type="text/css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
 
     </head>
     <body>
@@ -48,52 +45,48 @@
                         <div class="clr"></div>
                     </div>
                 </div>
+                <script>
+
+                </script>
                 <div class="body">
                     <div class="body_resize">
                         <div class="left">
-                            <h2> Voici la liste des étudiants: </h2>
-                            <script>
-    if (window.XMLHttpRequest) {// pour navigateur IE7+, Firefox, Chrome, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {// pour navigateur IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.open("GET", "javascripts/login.xml", false);
-    xmlhttp.send();
-    xmlDoc = xmlhttp.responseXML;
+                            <h3><span>Section </span>Enseignant</h3>
+                            <div class="bg">
+                                <h3 id="titreAjoutSections" > Information sur <div id="type"></div></h2>
+                                    <table>
+                                        <tr class="ligne">
+                                            <td class="form_label"><label for="Titre">Titre:</label></td>
+                                            <td class="form_champ"><input id="titre" name="Titre" type="text" /></td>
+                                            <td class="form_infos"><span id="infos_nom"> </span></td>
+                                        </tr>
+                                        <tr class="ligne">
+                                            <td class="form_label"><label for="Description">Description:</label></td>
+                                            <td class="form_champ"><textarea rows="5" cols="50" id="description" name="description"> </textarea></td>
+                                        </tr>
 
-    document.write("<table border='1' class='tftable' width= '500'><tr><th>Nom</th><th>Prenom</th><th>Code MS</th></tr>");
-    var x = xmlDoc.getElementsByTagName("etudiant");
-    for (i = 0; i < x.length; i++) {
-        document.write("<tr><td>");
-        document.write(x[i].getElementsByTagName("nom")[0].childNodes[0].nodeValue);
-        document.write("</td><td>");
-        document.write(x[i].getElementsByTagName("prenom")[0].childNodes[0].nodeValue);
-        document.write("</td><td>");
-        document.write(x[i].getAttribute("ms"));
-        document.write("</td></tr>");
-    }
-    document.write("</table>");
 
-    function goBack()
-    {
-        window.history.back()
-    }
-                            </script>
-                            </br>
-                            <button onclick="goBack()">Retourner à la page précédente</button>
-                            <div class="bg"></div>
-
-                            </blockquote>
+                                    </table>
+                            </div>
                         </div>
                         <div class="right">
                             <div class="blog">
                                 <h2><span>Choix d'options</span></h2>
                                 <ul>
+                                    <script>
+                                        var dbjson = localStorage.getItem('db');
+                                        var dbJ = JSON.parse(dbjson);
+                                        var sect = dbJ.section;
+                                        if (sect == null) {
+                                        } else {
+                                            for (var i = 0; i < sect.length; i++) {
+                                                dbtext = sect[i]
+                                                var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
+                                                document.write(sectionhtml);
+                                            }
+                                        }
+                                    </script>
                                     <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
-                                    <li> <a href="ajouter.html">Ajouter du contenu</a> </li>
-                                    <li> <a href="modifier.html">Modifier du contenu</a> </li>
-                                    <li> <a href="supprimer.html#1">Supprimer du contenu</a> </li>
                                     <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
                                     <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
                                 </ul>

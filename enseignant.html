@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="javascripts/section.js"></script>
 <script type="text/javascript" src="javascripts/loginForm.js"></script>
 <script type="text/javascript">
 
@@ -16,8 +16,7 @@
         <link href="style.css" rel="stylesheet" type="text/css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
         </script>
-        <script src="javascripts/listeEtudiants.js"  type="text/javascript"></script>
-        
+
     </head>
     <body>
         <div class="main">
@@ -48,64 +47,59 @@
                 </div>
                 <div class="body">
                     <div class="body_resize">
-                        <div class="left">
+                        <div class="left" id="section">
                             <h3><span>Section </span>Enseignant</h3>
                             <div class="bg">
                                 <h3 id="titreAjoutSections" > Ajout de sections : </h2>
-                                <table>
-                                    <tr class="ligne">
-                                        <td class="form_label"><label for="typeSection">Type de section :</label></td>
-                                        <td class="form_champ"><select name="jour" id="c_jour">
-                                                <option value="Ateliers">Ateliers</option>
-                                                <option value="Examens">Examens</option>
-                                                <option value="NotesDeCours">Notes de cours</option>
-                                                <option value="TravauxPratiques">Travaux Pratiques</option>
-                                            </select></td>
-                                    </tr>
-                                    <tr class="ligne">
-                                        <td class="form_label"><label for="Titre">Titre:</label></td>
-                                        <td class="form_champ"><input id="c_nom" name="Titre" type="text" /></td>
-                                        <td class="form_infos"><span id="infos_nom"> </span></td>
-                                    </tr>
-                                    <tr class="ligne">
-                                        <td class="form_label"><label for="Description">Description:</label></td>
-                                        <td class="form_champ"><textarea rows="5" cols="50" name="description"> </textarea></td>
-                                    </tr>
-                                    <tr class="ligne">
-                                        <td class="form_label"><label for="Ressource">Ressource:</label></td>
-                                        <td class="form_champ"><input type="file" value="lien" /></td>
-                                    </tr>
+                                    <table>
+                                        <form id="login"  method="POST" action="" name ="formulaire"  onsubmit="return ajoutSection();">
+                                            <tr class="ligne">
+                                                <td class="form_label"><label for="typeSection">Type de section :</label></td>
+                                                <td class="form_champ"><select name="jour" id="type">
+                                                        <option value="ateliers">Ateliers</option>
+                                                        <option value="examens">Examens</option>
+                                                        <option value="notesDeCours">Notes de cours</option>
+                                                        <option value="travauxPratiques">Travaux Pratiques</option>
+                                                    </select></td>
+                                            </tr>
+                                            <tr class="ligne">
+                                                <td class="form_label"><label for="Titre">Titre:</label></td>
+                                                <td class="form_champ"><input id="titre" name="Titre" type="text" /></td>
+                                                <td class="form_infos"><span id="infos_nom"> </span></td>
+                                            </tr>
+                                            <tr class="ligne">
+                                                <td class="form_label"><label for="Description">Description:</label></td>
+                                                <td class="form_champ"><textarea rows="5" cols="50" id="description" name="description"> </textarea></td>
+                                            </tr>
+
+
+                                    </table>
                                     <tr>
-                                        <td></td>
-                                        <td ><a href="ressoureces.html"> liste des ressources</a></td>
+                                        <input type="submit" value="Ajouter la section" />
                                     </tr>
-                                    <tr class="ligne">
-                                        <td class="form_label"><label for="Activite">Activités:</label></td>
-                                    </tr>
-                                    <tr class="ligne">
-                                        <td class="form_label"><label for="ajouterDevoir">-Ajouter un devoir</label></td>
-                                        <td class="form_champ"><input type="file" value="lien" /></td>
-                                    </tr>
-                                    <tr class="ligne">
-                                        <td class="form_label"><label for="remettreDevoir">-Remettre un devoir</label></td>
-                                        <td class="form_champ"><input type="file" value="lien" /></td>
-                                    </tr>
-                                </table>
-                                <tr>
-                                    <input type="submit" value="Ajouter la section" />
-                                </tr>
+                                    </form>
                             </div>
                         </div>
                         <div class="right">
                             <div class="blog">
                                 <h2><span>Choix d'options</span></h2>
                                 <ul>
-                                 	<li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
-                                    <li> <a href="ajouter.html">Ajouter du contenu</a> </li>
-                                    <li> <a href="modifier.html">Modifier du contenu</a> </li>
-                                    <li> <a href="supprimer.html#1">Supprimer du contenu</a> </li>
+                                    <script>
+                                        var dbjson = localStorage.getItem('db');
+                                        var dbJ = JSON.parse(dbjson);
+                                        var sect = dbJ.section;
+                                        if (sect == null) {
+                                        } else {
+                                            for (var i = 0; i < sect.length; i++) {
+                                                dbtext = sect[i]
+                                                var sectionhtml = "<li><a href='javascript:gotosection(" + i + ");' >" + dbtext.titre + "</a> </li>";
+                                                document.write(sectionhtml);
+                                            }
+                                        }
+                                    </script>
+                                    <li> <a href="listeEtudiants.html" >Liste étudiants inscrits</a> </li>
                                     <li> <a href="envoiCourriel.html">Envoyer un courriel</a> </li>
-                                    <li> <a href="roles.html">Attribuer un role</a></li>
+                                    <li id="ajouterRole" style="display:none"> <a href="roles.html">Attribuer un role</a></li>
                                 </ul>
                             </div>
                             <div class="blog">

@@ -11,11 +11,11 @@
         <prenom>Fred</prenom>
         <password>ffff12345</password>	
     </etudiant>
-	<etudiant ms="wa20038603">
-		<nom>Wallberg</nom>
-		<prenom>Mark</prenom>
-		<password>mmmm12345</password>
-	</etudiant>
+    <etudiant ms="wa20038603">
+        <nom>Wallberg</nom>
+        <prenom>Mark</prenom>
+        <password>mmmm12345</password>
+    </etudiant>
 	
     <enseignant ms="bh112233">
         <nom>Lapointe</nom>

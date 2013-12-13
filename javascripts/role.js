@@ -114,8 +114,8 @@ function codeMSexist(codeMS, role) {
 }
 
 function  nouveaurole(nom, prenom, codeMS, passW, role) {
-    xmlDoc=loadXMLDoc("javascripts/login.xml");
-    newNode=xmlDoc.createElement(role);
-    x=xmlDoc.getElementsByTagName("list")[0];
+    xmlDoc = loadXMLDoc("javascripts/login.xml");
+    newNode = xmlDoc.createElement(role);
+    x = xmlDoc.getElementsByTagName("list")[0];
     x.appendChild(newNode);
 }
