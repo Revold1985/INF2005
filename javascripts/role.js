@@ -11,7 +11,6 @@ function newrole() {
     prenom = document.getElementById("prenom");
     role = $('input[name="role"]:checked').val()
 
-
     if (codeMS.value === "") {
         verifChamp(document.formulaire.codeMS, true);
         alert("Le champ code MS doit être rempli.");
@@ -61,10 +60,12 @@ function newrole() {
     } else {
         verifChamp(document.formulaire.passW, false);
     }
-
     if (!codeMSexist(codeMS.value, role)) {
         nouveaurole(nom, prenom, codeMS, passW, role);
+        location.reload();
+        return false;
     }
+    return false;
 }
 
 verifChamp = function(champ, erreur) {
@@ -115,7 +116,8 @@ function codeMSexist(codeMS, role) {
 
 function  nouveaurole(nom, prenom, codeMS, passW, role) {
     xmlDoc = loadXMLDoc("javascripts/login.xml");
-    newNode = xmlDoc.createElement(role);
+    newNode = 
     x = xmlDoc.getElementsByTagName("list")[0];
     x.appendChild(newNode);
+    console.log(x);
 }

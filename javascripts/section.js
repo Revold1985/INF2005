@@ -54,3 +54,11 @@ function effacerSection(index) {
     return false;
 
 }
+
+function success(){
+    var conf = confirm("Voulez vous envoyer ce message ?");
+    if (conf){
+        alert("Message envoyé");
+        location.reload();
+    }
+}

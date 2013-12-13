@@ -16,7 +16,6 @@ function deconnection() {
     setTimeout(function() {
         sessionStorage.clear();
         sessionStorage.setItem('connected', false);
-        localStorage.db = null;
         window.location.href = "index.html";
     }, 5000);
 
