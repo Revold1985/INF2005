@@ -13,10 +13,7 @@ window.onload = function() {
     }
 };
 function deconnection() {
-    var decon = '</br></br></br></br></br><marquee behavior="scroll" direction="right" scrollamount="20">
-    <img src="images/airplane.svg" width="120" height="100" alt="smile" />
-    
-    <p>Vous êtes maintenant déconnecté !</p></marquee>'
+    var decon = '</br></br></br></br></br><marquee behavior="scroll" direction="right" scrollamount="20"><img src="images/airplane.svg" width="120" height="100" alt="smile" /><p>Vous êtes maintenant déconnecté !</p></marquee>'
     document.body.innerHTML = decon;
     setTimeout(function() {
         sessionStorage.clear();
